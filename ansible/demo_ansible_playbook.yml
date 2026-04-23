@@ -1,0 +1,24 @@
+- name: Deploy Spring Boot using Docker
+  hosts: SpringBootDemoServer
+  become: yes
+
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+#    - name: Build Docker image
+#        shell: docker build -t abhosle1298/demo-spring-app:0.0.1.RELEASE
+
+    - name: Pull Docker image
+      shell: docker pull abhosle1298/demo-spring-app:0.0.1.RELEASE
+
+    - name: Run container
+      shell: docker run -d -p 8082:8080 abhosle1298/demo-spring-app:0.0.1.RELEASE
