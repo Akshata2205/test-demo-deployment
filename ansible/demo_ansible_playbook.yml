@@ -1,3 +1,4 @@
+---
 - name: Deploy Spring Boot using Docker
   hosts: SpringBootDemoServer
   become: yes
@@ -18,7 +19,7 @@
 #        shell: docker build -t abhosle1298/demo-spring-app:0.0.1.RELEASE
 
     - name: Pull Docker image
-      shell: docker pull abhosle1298/demo-spring-app:0.0.1.RELEASE
+      shell: docker pull abhosle1298/demo:0.0.1.RELEASE
 
     - name: Run container
-      shell: docker run -d -p 8082:8080 abhosle1298/demo-spring-app:0.0.1.RELEASE
+      shell: docker run -d -p 8082:8080 abhosle1298/demo:0.0.1.RELEASE

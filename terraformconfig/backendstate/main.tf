@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "backend_state_bucket"{
-  bucket="demo_application_backend_state_123"
+  bucket="demo-application-backend-state-123"
   lifecycle{
     prevent_destroy=true
   }
@@ -30,9 +30,9 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "backend_state_buc
 resource "aws_dynamodb_table" "backend_locks"{
   name="demo_application_lock"
   billing_mode="PAY_PER_REQUEST"
-  hash_key="LOCK_ID"
+  hash_key="LockID"
   attribute{
-    name="LOCK_ID"
+    name="LockID"
     type= "S"
   }
 }
